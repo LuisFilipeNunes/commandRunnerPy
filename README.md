@@ -8,6 +8,7 @@ This Python script enables the execution of Telnet commands on a remote device a
     Save the output of commands with timestamps.
     Support for displaying memory and CPU usage.
     Option to save device configurations periodically.
+    Option to save the Debug Gpon onu from equipment terminal on a separate file. 
 
 ## Usage
 
@@ -24,16 +25,28 @@ This Python script enables the execution of Telnet commands on a remote device a
         -t, --telnet-port: Specifies the Telnet port (default: 23).
         -p, --telnet-password: Sets the Telnet password (default: parks).
         -i, --interval: Sets the interval for saving configurations, in seconds (default: 30).
-        -T, --Type: Changes the type of command sent to the device (default: save_config). Options: show_memory, show_cpu, save_config.
+        -T, --Type: Changes the type of command sent to the device (default: save_config). Options: show_memory, show_cpu, save_config and debug_listener.
 
 ## Example
 
-To run the script and save CPU usage information:
+To run the script and save CPU usage information at a 60 seconds interval:
 ```shell
 
 python3 command_runner.py -H 192.168.1.100 -u admin -t 23 -p parks -i 60 -T show_cpu
 ```
 
+To run the script and save Memory usage information at a 60 seconds interval:
+```shell
+
+python3 command_runner.py -H 192.168.1.100 -u admin -t 23 -p parks -i 60 -T show_cpu
+```
+
+
+To run the script and save the terminal output on a file. 
+```shell
+
+python3 command_runner.py -H 192.168.1.100 -u admin -t 23 -p parks -i 60 -T debug_listener > debug_output.txt
+```
 
 ### Notes
 
